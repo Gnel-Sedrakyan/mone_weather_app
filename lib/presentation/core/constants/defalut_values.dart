@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const defaultPadding = 10.0;
 const defaultSpacing = 15.0;
-const defaultBorderRadius = 60.0;
+const defaultBorderRadius = 30.0;
 
 const defaultButtonShadowColor = Color.fromRGBO(120, 120, 120, 0.5);
 const defaultButtonShadowOffset = Offset(25, 24);
