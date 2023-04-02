@@ -1,4 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mone_weather_app/domain/core/value_objects.dart';
+import 'package:mone_weather_app/domain/location/location.dart';
 import 'package:mone_weather_app/infrastructure/weather/datasources/weather_fake_datasource.dart';
 
 void main() {
@@ -12,7 +14,10 @@ void main() {
     test('getWeatherForLocationByDaysRange returns a list of weather models',
         () async {
       // Arrange
-      const location = 'Erevan';
+      final location = Location(
+        name: 'Erevan',
+        id: UniqueId(),
+      );
       const daysRange = 5;
 
       // Act

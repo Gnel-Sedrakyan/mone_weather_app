@@ -11,7 +11,7 @@ class LocationFakeDatasource implements ILocationRemoteDatasource {
 
   @override
   Future<Location> getLocationByName({required String name}) async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
     return Location(id: UniqueId(), name: name);
   }
 

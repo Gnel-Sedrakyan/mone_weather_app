@@ -44,7 +44,7 @@ class LocationRepository implements ILocationRepository {
       return right(locationFromRemoteDatasource);
     } on PlatformException catch (_) {
       return left(const LocationFailure.networkError());
-    } on GpsNotEnabledError catch (_) {
+    } on GpsNotEnabledError {
       return left(const LocationFailure.gpsIsNotAvalible());
     }
   }
@@ -70,6 +70,7 @@ class LocationRepository implements ILocationRepository {
     if (locationByGps.isRight()) {
       return locationByGps;
     }
+
     final Either<LocationFailure, Location> locationByIp =
         await getCurrentLocationByIp();
     return locationByIp;

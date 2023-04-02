@@ -6,12 +6,12 @@ import 'package:mone_weather_app/domain/weather/weather.dart';
 class WeatherModel extends Weather {
   WeatherModel({
     required UniqueId id,
-    required Temperature temperatureInCelsius,
+    required Temperature temperature,
     required DateTime day,
     required WeatherCondition weatherCondition,
   }) : super(
           id: id,
-          temperatureInCelsius: temperatureInCelsius,
+          temperature: temperature,
           day: day,
           weatherCondition: weatherCondition,
         );
@@ -19,7 +19,7 @@ class WeatherModel extends Weather {
   Map<String, dynamic> toJson() {
     return {
       'id': id.getOrCrash(),
-      'temperatureInCelsius': temperatureInCelsius,
+      'temperature': temperature,
       'day': day.millisecondsSinceEpoch,
       'weatherCondition': weatherCondition.toString(),
     };
@@ -28,7 +28,7 @@ class WeatherModel extends Weather {
   factory WeatherModel.fromJson(Map<String, dynamic> map) {
     return WeatherModel(
       id: UniqueId.fromUniqueString(map['id']),
-      temperatureInCelsius: (map['temperatureInCelsius']),
+      temperature: (map['temperature']),
       day: DateTime.fromMillisecondsSinceEpoch(map['day']),
       weatherCondition: getWeatherConditionFromString(map['weatherCondition']),
     );
@@ -41,7 +41,7 @@ class WeatherModel extends Weather {
           (weather) => WeatherModel(
             day: DateTime.now(),
             id: UniqueId(),
-            temperatureInCelsius: weather['temperatureInCelsius'],
+            temperature: weather['temperature'],
             weatherCondition: getWeatherConditionFromString(
               weather['weatherCondition'],
             ),

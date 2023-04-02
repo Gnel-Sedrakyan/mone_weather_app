@@ -14,26 +14,26 @@ enum WeatherCondition {
 class Weather implements IEntity {
   @override
   final UniqueId id;
-  final Temperature temperatureInCelsius;
+  final Temperature temperature;
   final DateTime day;
   final WeatherCondition weatherCondition;
 
   Weather({
     required this.id,
-    required this.temperatureInCelsius,
+    required this.temperature,
     required this.day,
     required this.weatherCondition,
   });
 
   Weather copyWith({
     UniqueId? id,
-    Temperature? temperatureInCelsius,
+    Temperature? temperature,
     DateTime? day,
     WeatherCondition? weatherCondition,
   }) {
     return Weather(
       id: id ?? this.id,
-      temperatureInCelsius: temperatureInCelsius ?? this.temperatureInCelsius,
+      temperature: temperature ?? this.temperature,
       day: day ?? this.day,
       weatherCondition: weatherCondition ?? this.weatherCondition,
     );
@@ -49,10 +49,10 @@ class Weather implements IEntity {
   @override
   int get hashCode =>
       id.hashCode ^
-      temperatureInCelsius.hashCode ^
+      temperature.hashCode ^
       day.hashCode ^
       weatherCondition.hashCode;
 
   @override
-  String toString() => 'Weather:$temperatureInCelsius, $weatherCondition';
+  String toString() => 'Weather:$temperature, $weatherCondition';
 }

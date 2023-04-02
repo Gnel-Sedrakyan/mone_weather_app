@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
+import 'package:mone_weather_app/domain/location/location.dart';
 import 'package:mone_weather_app/domain/weather/i_weather_repository.dart';
 import 'package:mone_weather_app/domain/weather/weather.dart';
 import 'package:mone_weather_app/domain/weather/weather_failure.dart';
@@ -18,7 +19,7 @@ class WeatherRepository implements IWeatherRepository {
   @override
   Future<Either<WeatherFailure, List<Weather>>>
       getWeatherForLocationByDaysRange(
-          {required String location, required int daysRange}) async {
+          {required Location location, required int daysRange}) async {
     try {
       final List<WeatherModel> weatherForecastFromRemoteDatasource =
           await weatehrRemoteDataSource.getWeatherForLocationByDaysRange(

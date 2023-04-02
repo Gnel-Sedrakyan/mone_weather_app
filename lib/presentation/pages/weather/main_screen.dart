@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:mone_weather_app/presentation/core/constants/defalut_values.dart';
-import 'package:mone_weather_app/presentation/pages/weather/widgets/current_weather.dart';
 import 'package:mone_weather_app/presentation/pages/weather/widgets/day_range_select.dart';
-import 'package:mone_weather_app/presentation/pages/weather/widgets/weather_carousell.dart';
+import 'package:mone_weather_app/presentation/pages/weather/widgets/weather_forecast_carousel.dart';
+import 'package:mone_weather_app/presentation/pages/weather/widgets/weather_pages_builder.dart';
 
 class MainScreen extends StatefulWidget {
   static const location = "/weather/";
@@ -22,7 +23,7 @@ class MainScreenState extends State<MainScreen> {
       children: [
         const Expanded(
           flex: 5,
-          child: CurrentWeatherInfo(),
+          child: WeatherInfoCarousell(),
         ),
         Expanded(
           flex: 2,
@@ -32,7 +33,7 @@ class MainScreenState extends State<MainScreen> {
                 height: defaultSpacing * 1.5,
               ),
               const DayRangeSelect(),
-              WeatherSlider(scrollController: _scrollController),
+              WeatherForecastSlider(scrollController: _scrollController),
               const SizedBox(
                 height: 10,
               )

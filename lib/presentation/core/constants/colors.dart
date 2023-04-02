@@ -21,8 +21,11 @@ MaterialColor createMaterialColor(Color color) {
 }
 
 const borderColor = Color(0x0F000000);
+
 const sunnyWeatherColor = Color(0xFF42C2FF);
 const clearWeatherColor = Color(0xFF712B75);
+const cloudyWeatherColor = Color(0xFFA8AAC4);
+const snowyWeatherColor = Color(0xFF6BA7CC);
 
 // Light Theme
 const bgColorLightTheme = Color(0xFFE8FCFF);

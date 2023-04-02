@@ -10,6 +10,9 @@ class Assets {
   static const String claritySun = '${assetPath}clarity_sun.png';
   static const String cloudySun = '${assetPath}cloudy_sun.png';
   static const String windySun = '${assetPath}windy_sun.png';
+  static const String clarityMoon = '${assetPath}clearity_moon.png';
+  static const String cloudyMoon = '${assetPath}cloudy_moon.png';
+  static const String windyMoon = '${assetPath}windy_moon.png';
   static const String rainy = '${assetPath}rainy.png';
   static const String stormy = '${assetPath}stormy.png';
 }

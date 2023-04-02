@@ -11,7 +11,7 @@ class PositionDatasource implements IPositionDatasource {
   @override
   Future<Position> getCurrentPositionByGps() async {
     await Future.delayed(const Duration(milliseconds: 100));
-    throw GpsNotEnabledError;
+    throw GpsNotEnabledError();
 
     // bool servicestatus = await Geolocator.isLocationServiceEnabled();
 
@@ -20,7 +20,7 @@ class PositionDatasource implements IPositionDatasource {
     //       desiredAccuracy: LocationAccuracy.high);
     //   return position;
     // } else {
-    //   throw GpsNotEnabledError;
+    //   throw GpsNotEnabledError();
     // }
 
     // currently developing app for macos (because I am not on macos13 or higher...),

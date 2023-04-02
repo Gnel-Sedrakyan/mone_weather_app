@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mone_weather_app/presentation/core/constants/colors.dart';
 
 class SvgAssetImage extends StatelessWidget {
   const SvgAssetImage({

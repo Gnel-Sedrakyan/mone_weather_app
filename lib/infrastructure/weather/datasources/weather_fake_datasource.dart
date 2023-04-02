@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:mone_weather_app/domain/core/value_objects.dart';
+import 'package:mone_weather_app/domain/location/location.dart';
 import 'package:mone_weather_app/domain/weather/value_objects.dart';
 import 'package:mone_weather_app/domain/weather/weather.dart';
 import 'package:mone_weather_app/infrastructure/weather/datasources/i_weather_remote_datasource.dart';
@@ -12,16 +15,19 @@ class WeatherFakeDatasource implements IWeatherRemoteDatasource {
 
   @override
   Future<List<WeatherModel>> getWeatherForLocationByDaysRange(
-      {required String location, required int daysRange}) async {
-    await Future.delayed(const Duration(seconds: 3));
+      {required Location location, required int daysRange}) async {
+    await Future.delayed(const Duration(seconds: 1));
     List<WeatherModel> weathers = [];
     for (var i = 0; i < daysRange; i++) {
+      var WeatherConditionIndex =
+          Random().nextInt(WeatherCondition.values.length);
+
       weathers.add(
         WeatherModel(
           id: UniqueId(),
-          temperatureInCelsius: Temperature(18),
+          temperature: Temperature(Random().nextInt(40).toDouble()),
           day: DateTime.now().add(Duration(days: i)),
-          weatherCondition: WeatherCondition.clear,
+          weatherCondition: WeatherCondition.values[WeatherConditionIndex],
         ),
       );
     }
